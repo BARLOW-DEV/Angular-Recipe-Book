@@ -8,6 +8,7 @@ import { Recipe } from './recipe.model';
 
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
+  recipeIndex = new EventEmitter<number>();
 
   private recipes: Recipe[] = [
     new Recipe('Cheese Burger',
@@ -30,4 +31,7 @@ export class RecipeService {
   return this.recipes.slice();
   }
 
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
 }

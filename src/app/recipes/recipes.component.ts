@@ -9,6 +9,7 @@ import { RecipeService } from './recipe.service';
 })
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
+  selectedRecipeIndex: number;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -18,6 +19,11 @@ export class RecipesComponent implements OnInit {
         this.selectedRecipe = recipe;
       }
     );
+    this.recipeService.recipeIndex.subscribe(
+      (index: number) => {
+        this.selectedRecipeIndex = index;
+      }
+    )
   }
 
 }
